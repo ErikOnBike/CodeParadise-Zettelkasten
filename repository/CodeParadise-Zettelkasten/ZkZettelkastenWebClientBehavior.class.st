@@ -38,5 +38,6 @@ ZkZettelkastenWebClientBehavior >> initialize [
 	self addGlobalStyle.
 
 	SlIconButton beLoaded.
-	SlDropdown beLoaded
+	SlDropdown beLoaded.
+	SlInput beLoaded
 ]
