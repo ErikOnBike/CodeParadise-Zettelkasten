@@ -155,7 +155,7 @@ ZkZettelkastenApplicationView >> searchElement [
 { #category : #rendering }
 ZkZettelkastenApplicationView >> selectColumns: columnCount [
 
-	(columnCount between: 2 and: 8)
+	(columnCount between: 2 and: 6)
 		ifFalse: [ ^ self ].
 
 	CpHtmlElement documentBody
