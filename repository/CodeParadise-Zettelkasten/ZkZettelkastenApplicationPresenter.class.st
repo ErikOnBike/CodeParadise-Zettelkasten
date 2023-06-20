@@ -18,7 +18,7 @@ ZkZettelkastenApplicationPresenter >> currentSelection [
 ZkZettelkastenApplicationPresenter >> model: aZettelkasten [
 
 	"Set the new zettelkasten as model for the receiver.
-	Create a new card selection on the zettelkasten's library for selection ann searching."
+	Create a new card selection on the zettelkasten's library for selection and searching."
 
 	super model: aZettelkasten.
 
