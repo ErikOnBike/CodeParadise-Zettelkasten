@@ -175,7 +175,7 @@ ZkCardSelection >> removeCardSelection: aCardSelection updating: aCollection [
 	source = aCardSelection
 		ifTrue: [
 			source := source source.
-			aCollection reverseDo: [ :each | self crTrace: 'update after remove: ', each printString. each update ] ]
+			aCollection reverseDo: [ :each | each updateForceValueChanged: true ] ]
 		ifFalse: [
 			source removeCardSelection: aCardSelection updating: aCollection ]
 ]
@@ -210,6 +210,14 @@ ZkCardSelection >> source [
 { #category : #accessing }
 ZkCardSelection >> update [
 
+	self updateForceValueChanged: false
+]
+
+{ #category : #accessing }
+ZkCardSelection >> updateForceValueChanged: aBoolean [
+
+	"Update the receiver and announce a change if the receiver changed or if aBoolean is true"
+
 	| newSelection |
 
 	"Optimization for no criteria set"
@@ -217,6 +225,9 @@ ZkCardSelection >> update [
 
 		"Make sure the selection represents all cards of the source"
 		selection = source cards
+			ifTrue: [
+				"Force change announcement?"
+				aBoolean ifTrue: [ self valueChanged ] ]
 			ifFalse: [
 				selection := source cards clone.
 				self valueChanged ].
@@ -225,7 +236,11 @@ ZkCardSelection >> update [
 
 	newSelection := source cards select: [ :each | each matches: criteria ].
 	newSelection = selection
-		ifTrue: [ ^ self ].
+		ifTrue: [
+			"Force change announcement?"
+			aBoolean ifTrue: [ self valueChanged ].
+
+			^ self ].
 
 	selection := newSelection.
 
