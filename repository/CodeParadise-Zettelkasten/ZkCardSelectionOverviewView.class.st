@@ -24,8 +24,13 @@ ZkCardSelectionOverviewView class >> style [
 	#container {
 		display: flex;
 		flex-flow: row nowrap;
+		align-items: center;
 		column-gap: 4px;
 		padding: 6px;
+	}
+	#add-selection-item {
+		font-size: 2em;
+		padding-left: 4px;
 	}'
 ]
 
@@ -37,6 +42,24 @@ ZkCardSelectionOverviewView class >> template [
 	<webResource: #html>
 
 	^ '<div id="container">
-		<slot name="selectionItems"></slot>
+		<slot name="selectionItems"></slot> <sl-icon-button id="add-selection-item" name="plus-circle-dotted"></sl-icon-button>
 	</div>'
+]
+
+{ #category : #'as yet unclassified' }
+ZkCardSelectionOverviewView >> handleAddSelectionItem: aClickEvent [
+
+	"Show the search bar when adding another selection item"
+
+	self parent
+		showSearch
+]
+
+{ #category : #initialization }
+ZkCardSelectionOverviewView >> initializeShadowRoot [
+
+	super initializeShadowRoot.
+
+	(self shadowRoot elementWithId: #'add-selection-item')
+		when: CpPrimaryClickEvent send: #handleAddSelectionItem: to: self 
 ]
