@@ -114,9 +114,9 @@ ZkCard >> linkedCards [
 { #category : #testing }
 ZkCard >> matches: aString [
 
-	^ (title includesSubstring: aString)
-		or: [ (description includesSubstring: aString)
-			or: [ tags includes: aString ] ]
+	^ (title includesSubstring: aString caseSensitive: false)
+		or: [ (description includesSubstring: aString caseSensitive: false)
+			or: [ tags anySatisfy: [ :each | each includesSubstring: aString caseSensitive: false ] ] ]
 ]
 
 { #category : #presenter }
