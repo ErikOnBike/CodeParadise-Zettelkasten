@@ -5,6 +5,20 @@ Class {
 }
 
 { #category : #'web resources' }
+ZkCardView class >> globalStyle [
+
+	<webResource: #css>
+
+	^'/* Shoelace styling */
+	zk-card sl-input::part(base) {
+		box-shadow: none;
+	}
+	zk-card sl-input[slot="tags"]::part(prefix) {
+		--sl-input-spacing-medium: 0;
+	}'
+]
+
+{ #category : #'web resources' }
 ZkCardView class >> style [
 
 	<webResource: #css>
@@ -22,6 +36,9 @@ ZkCardView class >> style [
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
+	}
+	:host {
+		height: 100%;
 	}
 	#container {
 		display: flex;
@@ -45,6 +62,8 @@ ZkCardView class >> style [
 		flex-flow: column nowrap;
 		row-gap: 6px;
 		justify-content: space-between;
+		height: 100%;
+		overflow-y: scroll;
 	}
 	#title	 {
 		flex-grow: 1;
@@ -55,6 +74,7 @@ ZkCardView class >> style [
 	}
 	#description {
 		flex-grow: 1;
+		overflow: hidden;
 	}
 	#linked-cards {
 		flex-grow: 0;
