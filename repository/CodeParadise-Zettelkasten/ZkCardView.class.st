@@ -164,7 +164,7 @@ ZkCardView >> createTitleElement [
 { #category : #'event handling' }
 ZkCardView >> handleDescriptionChanged: anEvent [
 
-	anEvent handleEventForField: #description inView: self
+	self handleEvent: anEvent forField: #description
 ]
 
 { #category : #'event handling' }
@@ -222,7 +222,7 @@ ZkCardView >> handleTagRemove: aRemoveEvent [
 { #category : #'event handling' }
 ZkCardView >> handleTitleChanged: anEvent [
 
-	anEvent handleEventForField: #title inView: self
+	self handleEvent: anEvent forField: #title
 ]
 
 { #category : #initialization }
