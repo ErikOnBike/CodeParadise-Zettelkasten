@@ -20,12 +20,3 @@ ZkZettelkasten >> initialize [
 
 	cardCollection := ZkCardCollection new
 ]
-
-{ #category : #presenter }
-ZkZettelkasten >> preferredPresenterClass [
-
-	"Currently the receiver does not have a preferred presenter class.
-	(This prevents the Smalltalk browser from showing a warning.)"
-
-	^ nil
-]

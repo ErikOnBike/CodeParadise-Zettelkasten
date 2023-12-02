@@ -119,12 +119,6 @@ ZkCard >> matches: aString [
 			or: [ tags anySatisfy: [ :each | each includesSubstring: aString caseSensitive: false ] ] ]
 ]
 
-{ #category : #presenter }
-ZkCard >> preferredPresenterClass [
-
-	^ ZkCardPresenter
-]
-
 { #category : #'private - accessing' }
 ZkCard >> removeCardLink: aCardLink [
 

@@ -112,9 +112,3 @@ ZkCardCollection >> library [
 
 	^ self
 ]
-
-{ #category : #presenter }
-ZkCardCollection >> preferredPresenterClass [
-
-	^ ZkCardCollectionPresenter
-]
