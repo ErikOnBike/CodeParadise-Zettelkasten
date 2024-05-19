@@ -4,6 +4,14 @@ Class {
 	#category : #'CodeParadise-Zettelkasten-Application'
 }
 
+{ #category : #'class initialization' }
+ZkZettelkastenWebClientBehavior class >> beLoaded [
+
+	SlIconButton beLoaded.
+	SlDropdown beLoaded.
+	SlInput beLoaded
+]
+
 { #category : #initialization }
 ZkZettelkastenWebClientBehavior >> addGlobalStyle [
 
@@ -35,9 +43,5 @@ ZkZettelkastenWebClientBehavior >> initialize [
 
 	super initialize.
 
-	self addGlobalStyle.
-
-	SlIconButton beLoaded.
-	SlDropdown beLoaded.
-	SlInput beLoaded
+	self addGlobalStyle
 ]
