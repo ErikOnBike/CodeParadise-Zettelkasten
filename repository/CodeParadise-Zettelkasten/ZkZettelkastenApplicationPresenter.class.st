@@ -1,20 +1,22 @@
 Class {
-	#name : #ZkZettelkastenApplicationPresenter,
-	#superclass : #CpPresenter,
+	#name : 'ZkZettelkastenApplicationPresenter',
+	#superclass : 'CpPresenter',
 	#instVars : [
 		'currentSelection',
 		'searchSelection'
 	],
-	#category : #'CodeParadise-Zettelkasten-Presenter'
+	#category : 'CodeParadise-Zettelkasten-Presenter',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Presenter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkZettelkastenApplicationPresenter >> currentSelection [
 
 	^ currentSelection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkZettelkastenApplicationPresenter >> model: aZettelkasten [
 
 	"Set the new zettelkasten as model for the receiver.
@@ -26,7 +28,7 @@ ZkZettelkastenApplicationPresenter >> model: aZettelkasten [
 	searchSelection := ZkCardSelection onSource: aZettelkasten cardCollection
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkZettelkastenApplicationPresenter >> removeCardSelection: aCardSelection [
 
 	"Remove the specified card selection.
@@ -47,7 +49,7 @@ ZkZettelkastenApplicationPresenter >> removeCardSelection: aCardSelection [
 	self renderView
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkZettelkastenApplicationPresenter >> renderView [
 
 	self
@@ -66,7 +68,7 @@ ZkZettelkastenApplicationPresenter >> renderView [
 		atSlotNamed: #search
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkZettelkastenApplicationPresenter >> searchIsFinalized [
 
 	"The search is finalized. Keep the search selection as the new current
@@ -78,13 +80,13 @@ ZkZettelkastenApplicationPresenter >> searchIsFinalized [
 	self renderView
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkZettelkastenApplicationPresenter >> searchSelection [
 
 	^ searchSelection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkZettelkastenApplicationPresenter >> zettelkasten [
 
 	^ self model

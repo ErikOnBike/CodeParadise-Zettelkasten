@@ -1,40 +1,42 @@
 Class {
-	#name : #ZkCardPresenter,
-	#superclass : #CpPresenter,
-	#category : #'CodeParadise-Zettelkasten-Presenter'
+	#name : 'ZkCardPresenter',
+	#superclass : 'CpPresenter',
+	#category : 'CodeParadise-Zettelkasten-Presenter',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Presenter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardPresenter >> card [
 
 	^ self model
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardPresenter >> handleAddTagRequested: anAddTagRequested [
 
 	self card addTag: anAddTagRequested value
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardPresenter >> handleDescriptionChanged: aFieldChanged [
 
 	self card description: aFieldChanged value
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardPresenter >> handleRemoveTagRequested: anAddTagRequested [
 
 	self card removeTag: anAddTagRequested value
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardPresenter >> handleTitleChanged: aFieldChanged [
 
 	self card title: aFieldChanged value
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardPresenter >> renderView [
 
 	| card |
@@ -48,7 +50,7 @@ ZkCardPresenter >> renderView [
 		renderTags: card tags asArray
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 ZkCardPresenter >> viewCreated [
 
 	super viewCreated.

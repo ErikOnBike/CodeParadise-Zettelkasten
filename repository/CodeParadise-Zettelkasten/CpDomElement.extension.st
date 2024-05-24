@@ -1,6 +1,6 @@
-Extension { #name : #CpDomElement }
+Extension { #name : 'CpDomElement' }
 
-{ #category : #'*CodeParadise-Zettelkasten' }
+{ #category : '*CodeParadise-Zettelkasten' }
 CpDomElement >> isInputComponent [
 
 	^ false

@@ -1,6 +1,6 @@
 Class {
-	#name : #ZkCard,
-	#superclass : #CpModel,
+	#name : 'ZkCard',
+	#superclass : 'CpModel',
 	#instVars : [
 		'id',
 		'library',
@@ -9,10 +9,12 @@ Class {
 		'tags',
 		'cardLinks'
 	],
-	#category : #'CodeParadise-Zettelkasten-Model'
+	#category : 'CodeParadise-Zettelkasten-Model',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ZkCard class >> new [
 
 	"Do not instantiate cards directly"
@@ -20,7 +22,7 @@ ZkCard class >> new [
 	self error: 'Please create new ', self name, ' using ', #newWithId:inLibrary:
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ZkCard class >> newWithId: anInteger inLibrary: aLibrary [
 
 	"Answer a new instance of the receiver with the specified id
@@ -31,7 +33,7 @@ ZkCard class >> newWithId: anInteger inLibrary: aLibrary [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> addTag: aString [
 
 	(tags includes: aString)
@@ -42,13 +44,13 @@ ZkCard >> addTag: aString [
 	self valueChanged
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> description [
 
 	^ description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> description: aString [
 
 	description = aString
@@ -59,13 +61,13 @@ ZkCard >> description: aString [
 	self valueChanged
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> id [
 
 	^ id
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCard >> initialize [
 
 	super initialize.
@@ -76,7 +78,7 @@ ZkCard >> initialize [
 	tags := OrderedCollection new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCard >> initializeWithId: anInteger inLibrary: aLibrary [
 
 	self initialize.
@@ -85,13 +87,13 @@ ZkCard >> initializeWithId: anInteger inLibrary: aLibrary [
 	library := aLibrary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> library [
 
 	^ library
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> linkCard: aCard [
 
 	| cardLink |
@@ -102,7 +104,7 @@ ZkCard >> linkCard: aCard [
 	self valueChanged
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> linkedCards [
 
 	"Answer a collection of unique cards the receiver is linked with"
@@ -111,7 +113,7 @@ ZkCard >> linkedCards [
 		removeDuplicates
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ZkCard >> matches: aString [
 
 	^ (title includesSubstring: aString caseSensitive: false)
@@ -119,7 +121,7 @@ ZkCard >> matches: aString [
 			or: [ tags anySatisfy: [ :each | each includesSubstring: aString caseSensitive: false ] ] ]
 ]
 
-{ #category : #'private - accessing' }
+{ #category : 'private - accessing' }
 ZkCard >> removeCardLink: aCardLink [
 
 	cardLinks remove: aCardLink.
@@ -127,7 +129,7 @@ ZkCard >> removeCardLink: aCardLink [
 	self valueChanged
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> removeTag: aString [
 
 	(tags includes: aString)
@@ -138,19 +140,19 @@ ZkCard >> removeTag: aString [
 	self valueChanged
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> tags [
 
 	^ tags
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> title [
 
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCard >> title: aString [
 
 	title = aString

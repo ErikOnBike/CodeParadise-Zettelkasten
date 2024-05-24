@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkFromInputComponent,
-	#superclass : #CpEventCondition,
-	#category : #'CodeParadise-Zettelkasten-Events'
+	#name : 'ZkFromInputComponent',
+	#superclass : 'CpEventCondition',
+	#category : 'CodeParadise-Zettelkasten-Events',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Events'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ZkFromInputComponent class >> matches: anEvent [
 
 	"Answer whether the receiver matches the specified event.

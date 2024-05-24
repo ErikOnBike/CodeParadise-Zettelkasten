@@ -27,16 +27,18 @@ Internal Representation and Key Implementation Points.
     Implementation Points
 "
 Class {
-	#name : #ZkCardCollection,
-	#superclass : #CpModel,
+	#name : 'ZkCardCollection',
+	#superclass : 'CpModel',
 	#instVars : [
 		'cards',
 		'nextCardId'
 	],
-	#category : #'CodeParadise-Zettelkasten-Model'
+	#category : 'CodeParadise-Zettelkasten-Model',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollection >> addCard [
 
 	"Add a new card to the receiver and answer it"
@@ -55,25 +57,25 @@ ZkCardCollection >> addCard [
 	^ card
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollection >> asOrderedCollection [
 
 	^ OrderedCollection with: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollection >> cardCount [
 
 	^ cards size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollection >> cards [
 
 	^ cards
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollection >> description [
 
 	"Answer a description for the receiver in the form:
@@ -86,7 +88,7 @@ ZkCardCollection >> description [
 			nextPut: $) ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardCollection >> initialize [
 
 	super initialize.
@@ -95,19 +97,19 @@ ZkCardCollection >> initialize [
 	cards := OrderedCollection new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ZkCardCollection >> isSelection [
 
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollection >> itemPutOn: aStream [
 
 	aStream nextPut: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollection >> library [
 
 	^ self

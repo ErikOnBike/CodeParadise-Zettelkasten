@@ -1,15 +1,17 @@
 Class {
-	#name : #ZkCardLink,
-	#superclass : #Object,
+	#name : 'ZkCardLink',
+	#superclass : 'Object',
 	#instVars : [
 		'from',
 		'to',
 		'tags'
 	],
-	#category : #'CodeParadise-Zettelkasten-Model'
+	#category : 'CodeParadise-Zettelkasten-Model',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ZkCardLink class >> from: sourceCard to: destinationCard [
 
 	^ self basicNew
@@ -17,7 +19,7 @@ ZkCardLink class >> from: sourceCard to: destinationCard [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ZkCardLink class >> new [
 
 	"Do not instantiate cards directly"
@@ -25,7 +27,7 @@ ZkCardLink class >> new [
 	self error: 'Please create new ', self name, ' using ', #from:to:
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardLink >> addTag: aString [
 
 	(tags includes: aString)
@@ -36,13 +38,13 @@ ZkCardLink >> addTag: aString [
 	self valueChanged
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardLink >> from [
 
 	^ from
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardLink >> initialize [
 
 	super initialize.
@@ -50,7 +52,7 @@ ZkCardLink >> initialize [
 	tags := OrderedCollection new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardLink >> initializeWithFrom: sourceCard to: destinationCard [
 
 	self initialize.
@@ -59,13 +61,13 @@ ZkCardLink >> initializeWithFrom: sourceCard to: destinationCard [
 	to := destinationCard
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 ZkCardLink >> remove [
 
 	to removeCardLink: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardLink >> removeTag: aString [
 
 	tags remove: aString.
@@ -73,13 +75,13 @@ ZkCardLink >> removeTag: aString [
 	self valueChanged
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardLink >> tags [
 
 	^ tags
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardLink >> to [
 
 	^ to

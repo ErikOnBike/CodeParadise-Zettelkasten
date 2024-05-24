@@ -1,16 +1,18 @@
 Class {
-	#name : #ZkCardSelectionItemPresenter,
-	#superclass : #CpPresenter,
-	#category : #'CodeParadise-Zettelkasten-Presenter'
+	#name : 'ZkCardSelectionItemPresenter',
+	#superclass : 'CpPresenter',
+	#category : 'CodeParadise-Zettelkasten-Presenter',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Presenter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelectionItemPresenter >> cardSelection [
 
 	^ self model
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardSelectionItemPresenter >> handleRemove [
 
 	"The receiver is removed, let the parent presenter know"
@@ -19,7 +21,7 @@ ZkCardSelectionItemPresenter >> handleRemove [
 		removeCardSelection: self cardSelection
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardSelectionItemPresenter >> renderView [
 
 	"Render the description of the card selection and make it removable if the selection
@@ -30,7 +32,7 @@ ZkCardSelectionItemPresenter >> renderView [
 		renderDescription: self cardSelection description removable: self cardSelection isSelection
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 ZkCardSelectionItemPresenter >> viewCreated [
 
 	super viewCreated.

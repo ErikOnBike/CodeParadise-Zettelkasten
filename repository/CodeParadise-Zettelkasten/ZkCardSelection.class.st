@@ -1,15 +1,17 @@
 Class {
-	#name : #ZkCardSelection,
-	#superclass : #CpModel,
+	#name : 'ZkCardSelection',
+	#superclass : 'CpModel',
 	#instVars : [
 		'source',
 		'criteria',
 		'selection'
 	],
-	#category : #'CodeParadise-Zettelkasten-Model'
+	#category : 'CodeParadise-Zettelkasten-Model',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ZkCardSelection class >> new [
 
 	"Do not instantiate card selections directly"
@@ -17,7 +19,7 @@ ZkCardSelection class >> new [
 	self error: 'Please create new ', self name, ' using ', #onSource:
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection class >> onSource: aSourceObject [
 
 	^ self basicNew
@@ -25,7 +27,7 @@ ZkCardSelection class >> onSource: aSourceObject [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> addCard [
 
 	"Add a new card to the receiver. Add the new card to the source, since
@@ -45,7 +47,7 @@ ZkCardSelection >> addCard [
 	^ card
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> asOrderedCollection [
 
 	"Answer an ordered collection representing the receiver and its
@@ -57,25 +59,25 @@ ZkCardSelection >> asOrderedCollection [
 		self putOn: stream ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> cardCount [
 
 	^ self cards size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> cards [
 
 	^ selection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> criteria [
 
 	^ criteria
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> criteria: aString [
 
 	criteria := aString.
@@ -83,7 +85,7 @@ ZkCardSelection >> criteria: aString [
 	self update
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> description [
 
 	"Answer a description for the receiver in the form:
@@ -97,7 +99,7 @@ ZkCardSelection >> description [
 			nextPut: $) ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardSelection >> initialize [
 
 	"Initialize the receiver. Be aware the source has to be set
@@ -112,7 +114,7 @@ ZkCardSelection >> initialize [
 	selection := source cards clone
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardSelection >> initializeWithSource: aSourceObject [
 
 	"First set the source, since it is used within #initialize"
@@ -122,13 +124,13 @@ ZkCardSelection >> initializeWithSource: aSourceObject [
 	self initialize
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ZkCardSelection >> isSelection [
 
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ZkCardSelection >> printOn: aStream [
 
 	aStream
@@ -138,7 +140,7 @@ ZkCardSelection >> printOn: aStream [
 		nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> putOn: aStream [
 
 	source putOn: aStream.
@@ -146,13 +148,13 @@ ZkCardSelection >> putOn: aStream [
 	aStream nextPut: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> removeCardSelection: aCardSelection [
 
 	self removeCardSelection: aCardSelection updating: OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> removeCardSelection: aCardSelection updating: aCollection [
 
 	"Remove the specified card selection from the chain of card selections
@@ -171,7 +173,7 @@ ZkCardSelection >> removeCardSelection: aCardSelection updating: aCollection [
 			source removeCardSelection: aCardSelection updating: aCollection ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> reset [
 
 	"Reset the receiver by making the criteria empty.
@@ -180,7 +182,7 @@ ZkCardSelection >> reset [
 	self criteria: ''
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> selectionCount [
 
 	"Answer a String representing the receiver's selection count"
@@ -192,19 +194,19 @@ ZkCardSelection >> selectionCount [
 			nextPutAll: source cardCount printString ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> source [
 
 	^ source
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> update [
 
 	self updateForceValueChanged: false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelection >> updateForceValueChanged: aBoolean [
 
 	"Update the receiver and announce a change if the receiver changed or if aBoolean is true"

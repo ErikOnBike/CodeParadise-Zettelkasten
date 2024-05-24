@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkCardSelectionItemView,
-	#superclass : #CpView,
-	#category : #'CodeParadise-Zettelkasten-View'
+	#name : 'ZkCardSelectionItemView',
+	#superclass : 'CpView',
+	#category : 'CodeParadise-Zettelkasten-View',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'View'
 }
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardSelectionItemView class >> style [
 
 	<webResource: #css>
@@ -72,7 +74,7 @@ ZkCardSelectionItemView class >> style [
 	}'
 ]
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardSelectionItemView class >> template [
 
 	"See comment in #style method"
@@ -85,25 +87,25 @@ ZkCardSelectionItemView class >> template [
 	</span>'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardSelectionItemView >> createDescriptionElement [
 
 	self appendChild: (CpHtmlElement newWithTag: #span) atSlotNamed: #description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelectionItemView >> descriptionElement [
 
 	^ self firstChildAtSlotNamed: #description
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardSelectionItemView >> handleRemove [
 
 	self serverAnnounce: ZkRemoveCardSelectionItem
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardSelectionItemView >> initialize [
 
 	super initialize.
@@ -111,7 +113,7 @@ ZkCardSelectionItemView >> initialize [
 	self createDescriptionElement
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardSelectionItemView >> initializeShadowRoot [
 
 	super initializeShadowRoot.
@@ -120,14 +122,14 @@ ZkCardSelectionItemView >> initializeShadowRoot [
 		when: CpPrimaryClickEvent send: #handleRemove to: self
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardSelectionItemView >> renderDescription: aString [
 
 	self descriptionElement
 		textContent: aString
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardSelectionItemView >> renderDescription: aString removable: aBoolean [
 
 	self descriptionElement

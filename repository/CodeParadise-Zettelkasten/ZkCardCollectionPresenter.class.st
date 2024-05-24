@@ -1,16 +1,18 @@
 Class {
-	#name : #ZkCardCollectionPresenter,
-	#superclass : #CpPresenter,
-	#category : #'CodeParadise-Zettelkasten-Presenter'
+	#name : 'ZkCardCollectionPresenter',
+	#superclass : 'CpPresenter',
+	#category : 'CodeParadise-Zettelkasten-Presenter',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Presenter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollectionPresenter >> collection [
 
 	^ self model
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardCollectionPresenter >> handleAddCardRequested [
 
 	"Add a new card to the library"
@@ -18,7 +20,7 @@ ZkCardCollectionPresenter >> handleAddCardRequested [
 	self collection addCard
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardCollectionPresenter >> renderView [
 
 	self
@@ -26,7 +28,7 @@ ZkCardCollectionPresenter >> renderView [
 		atSlotNamed: #cards
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 ZkCardCollectionPresenter >> viewCreated [
 
 	super viewCreated.

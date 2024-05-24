@@ -1,13 +1,15 @@
 Class {
-	#name : #ZkTagOperationRequested,
-	#superclass : #Announcement,
+	#name : 'ZkTagOperationRequested',
+	#superclass : 'Announcement',
 	#instVars : [
 		'value'
 	],
-	#category : #'CodeParadise-Zettelkasten-Events'
+	#category : 'CodeParadise-Zettelkasten-Events',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Events'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkTagOperationRequested class >> value: aString [
 
 	^ self basicNew
@@ -15,7 +17,7 @@ ZkTagOperationRequested class >> value: aString [
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkTagOperationRequested >> initializeWithValue: aString [
 
 	self initialize.
@@ -23,7 +25,7 @@ ZkTagOperationRequested >> initializeWithValue: aString [
 	value := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkTagOperationRequested >> value [
 
 	^ value

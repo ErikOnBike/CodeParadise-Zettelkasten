@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkZettelkastenApplicationView,
-	#superclass : #CpView,
-	#category : #'CodeParadise-Zettelkasten-View'
+	#name : 'ZkZettelkastenApplicationView',
+	#superclass : 'CpView',
+	#category : 'CodeParadise-Zettelkasten-View',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'View'
 }
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkZettelkastenApplicationView class >> style [
 
 	<webResource: #css>
@@ -42,7 +44,7 @@ ZkZettelkastenApplicationView class >> style [
 	}'
 ]
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkZettelkastenApplicationView class >> template [
 
 	<webResource: #html>
@@ -55,13 +57,13 @@ ZkZettelkastenApplicationView class >> template [
 	<slot name="search"></slot>'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkZettelkastenApplicationView >> closeSearch [
 
 	self searchElement close
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkZettelkastenApplicationView >> cssVariableDefinitions [
 
 	^ 'body {
@@ -74,7 +76,7 @@ ZkZettelkastenApplicationView >> cssVariableDefinitions [
 	}'
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkZettelkastenApplicationView >> handleColumnsKey: aKeyEvent [
 
 	"Display number of columns specified by the key"
@@ -84,7 +86,7 @@ ZkZettelkastenApplicationView >> handleColumnsKey: aKeyEvent [
 	self selectColumns: aKeyEvent key first digitValue
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkZettelkastenApplicationView >> handleEscapeKey: aKeyEvent [
 
 	"Stop searching on escape"
@@ -93,7 +95,7 @@ ZkZettelkastenApplicationView >> handleEscapeKey: aKeyEvent [
 	self closeSearch
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkZettelkastenApplicationView >> handleSearchKey: aKeyEvent [
 
 	"Perform search"
@@ -102,7 +104,7 @@ ZkZettelkastenApplicationView >> handleSearchKey: aKeyEvent [
 	self showSearch
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkZettelkastenApplicationView >> initialize [
 
 	super initialize.
@@ -126,7 +128,7 @@ ZkZettelkastenApplicationView >> initialize [
 		when: (CpKeyPressEvent keyRangeFrom: '2' to: '8') & ZkFromInputComponent not send: #handleColumnsKey: to: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkZettelkastenApplicationView >> pageStyle [
 
 	^ 'body {
@@ -146,13 +148,13 @@ ZkZettelkastenApplicationView >> pageStyle [
 	}'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkZettelkastenApplicationView >> searchElement [
 
 	^ self firstChildAtSlotNamed: #search
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkZettelkastenApplicationView >> selectColumns: columnCount [
 
 	(columnCount between: 2 and: 6)
@@ -162,7 +164,7 @@ ZkZettelkastenApplicationView >> selectColumns: columnCount [
 		styleAt: #'--zk-library-columns' put: columnCount printString
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkZettelkastenApplicationView >> showSearch [
 
 	self searchElement show

@@ -1,16 +1,18 @@
 Class {
-	#name : #ZkCardCollectionSearchPresenter,
-	#superclass : #CpPresenter,
-	#category : #'CodeParadise-Zettelkasten-Presenter'
+	#name : 'ZkCardCollectionSearchPresenter',
+	#superclass : 'CpPresenter',
+	#category : 'CodeParadise-Zettelkasten-Presenter',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Presenter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollectionSearchPresenter >> cardSelection [
 
 	^ self model
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardCollectionSearchPresenter >> handleSearchChanged: aFieldChanged [
 
 	"The search criteria has changed, update the card selection"
@@ -19,7 +21,7 @@ ZkCardCollectionSearchPresenter >> handleSearchChanged: aFieldChanged [
 		criteria: aFieldChanged value
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardCollectionSearchPresenter >> handleSearchFinalized: aFieldChanged [
 
 	"The search is finalized, close my view and let the parent presenter know.
@@ -35,14 +37,14 @@ ZkCardCollectionSearchPresenter >> handleSearchFinalized: aFieldChanged [
 	self model reset
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardCollectionSearchPresenter >> renderView [
 
 	self view
 		renderSelectionCount: self cardSelection selectionCount
 ]
 
-{ #category : #view }
+{ #category : 'view' }
 ZkCardCollectionSearchPresenter >> viewCreated [
 
 	super viewCreated.

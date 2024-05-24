@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkCardView,
-	#superclass : #CpFieldsView,
-	#category : #'CodeParadise-Zettelkasten-View'
+	#name : 'ZkCardView',
+	#superclass : 'CpFieldsView',
+	#category : 'CodeParadise-Zettelkasten-View',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'View'
 }
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardView class >> globalStyle [
 
 	<webResource: #css>
@@ -18,7 +20,7 @@ ZkCardView class >> globalStyle [
 	}'
 ]
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardView class >> style [
 
 	<webResource: #css>
@@ -86,7 +88,7 @@ ZkCardView class >> style [
 	}'
 ]
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardView class >> template [
 
 	"See comment in #style method"
@@ -103,7 +105,7 @@ ZkCardView class >> template [
 	</div>'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> createDescriptionElement [
 
 	| textarea |
@@ -120,7 +122,7 @@ ZkCardView >> createDescriptionElement [
 	^ self appendChild: textarea atSlotNamed: #description
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> createIdElement [
 
 	| tag |
@@ -132,7 +134,7 @@ ZkCardView >> createIdElement [
 	^ self appendChild: tag atSlotNamed: #id
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> createTagsElement [
 
 	"Create an input element with tags as prefix.
@@ -151,7 +153,7 @@ ZkCardView >> createTagsElement [
 		yourself
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> createTitleElement [
 
 	^ (self appendChild: SlInput new atSlotNamed: #title)
@@ -161,13 +163,13 @@ ZkCardView >> createTitleElement [
 		yourself
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardView >> handleDescriptionChanged: anEvent [
 
 	self handleEvent: anEvent forField: #description
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardView >> handleResize: aResizeEvent [
 
 	| tagsInput tagsElement tagsElementWidth inputElement inputElementWidth |
@@ -192,7 +194,7 @@ ZkCardView >> handleResize: aResizeEvent [
 		ifFalse: [ self flag: #TODO "Add #tagsBeInlined" ]
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardView >> handleTagAdd: aKeyEvent [
 
 	| tagInput tag |
@@ -207,25 +209,25 @@ ZkCardView >> handleTagAdd: aKeyEvent [
 	self serverAnnounce: (ZkAddTagRequested value: tag)
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardView >> handleTagChanged: anEvent [
 
 	self flag: #TODO.	"Add support to autocomplete any known tags"
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardView >> handleTagRemove: aRemoveEvent [
 
 	self serverAnnounce: (ZkRemoveTagRequested value: aRemoveEvent target contentText)
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardView >> handleTitleChanged: anEvent [
 
 	self handleEvent: anEvent forField: #title
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardView >> initialize [
 
 	super initialize.
@@ -237,7 +239,7 @@ ZkCardView >> initialize [
 		createTagsElement
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> render: aString toInputAtSlotNamed: slotNameString [
 
 	| inputElement |
@@ -251,20 +253,20 @@ ZkCardView >> render: aString toInputAtSlotNamed: slotNameString [
 	inputElement value: aString
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> renderDescription: aString [
 
 	self render: aString toInputAtSlotNamed: #description
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> renderId: aString [
 
 	(self firstChildAtSlotNamed: #id)
 		textContent: aString
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> renderTags: aCollection [
 
 	| tagsElement |
@@ -285,19 +287,19 @@ ZkCardView >> renderTags: aCollection [
 			yourself) ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> renderTitle: aString [
 
 	self render: aString toInputAtSlotNamed: #title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardView >> tagInput [
 
 	^ self firstChildAtSlotNamed: #tags
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardView >> tagsBeDropdownList [
 
 	| tagsElement tags |
@@ -327,7 +329,7 @@ ZkCardView >> tagsBeDropdownList [
 	self renderTags: tags
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardView >> tagsElement [
 
 	"Answer the tags element (which is prefixed in the input field)"

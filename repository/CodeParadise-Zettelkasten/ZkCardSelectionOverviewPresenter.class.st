@@ -1,16 +1,18 @@
 Class {
-	#name : #ZkCardSelectionOverviewPresenter,
-	#superclass : #CpPresenter,
-	#category : #'CodeParadise-Zettelkasten-Presenter'
+	#name : 'ZkCardSelectionOverviewPresenter',
+	#superclass : 'CpPresenter',
+	#category : 'CodeParadise-Zettelkasten-Presenter',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Presenter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelectionOverviewPresenter >> cardSelection [
 
 	^ self model
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardSelectionOverviewPresenter >> cardSelectionCollection [
 
 	"Answer an ordered collection of card selection instances which form
@@ -21,14 +23,14 @@ ZkCardSelectionOverviewPresenter >> cardSelectionCollection [
 	^ self model asOrderedCollection
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 ZkCardSelectionOverviewPresenter >> removeCardSelection: aCardSelection [
 
 	self parent
 		removeCardSelection: aCardSelection
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardSelectionOverviewPresenter >> renderView [
 
 	self

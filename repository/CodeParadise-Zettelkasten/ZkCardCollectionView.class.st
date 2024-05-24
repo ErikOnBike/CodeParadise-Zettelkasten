@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkCardCollectionView,
-	#superclass : #CpView,
-	#category : #'CodeParadise-Zettelkasten-View'
+	#name : 'ZkCardCollectionView',
+	#superclass : 'CpView',
+	#category : 'CodeParadise-Zettelkasten-View',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'View'
 }
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardCollectionView class >> style [
 
 	<webResource: #css>
@@ -52,7 +54,7 @@ ZkCardCollectionView class >> style [
 	}'
 ]
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardCollectionView class >> template [
 
 	"See comment in #style method"
@@ -65,19 +67,19 @@ ZkCardCollectionView class >> template [
 	</div>'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollectionView >> addCardButton [
 
 	^ self shadowRoot elementWithId: #'add-card-button'
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardCollectionView >> handleAddCardRequested [
 
 	self serverAnnounce: ZkAddCardRequested
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardCollectionView >> initializeShadowRoot [
 
 	super initializeShadowRoot.

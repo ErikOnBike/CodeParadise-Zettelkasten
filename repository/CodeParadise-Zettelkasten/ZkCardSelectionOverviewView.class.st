@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkCardSelectionOverviewView,
-	#superclass : #CpView,
-	#category : #'CodeParadise-Zettelkasten-View'
+	#name : 'ZkCardSelectionOverviewView',
+	#superclass : 'CpView',
+	#category : 'CodeParadise-Zettelkasten-View',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'View'
 }
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardSelectionOverviewView class >> style [
 
 	<webResource: #css>
@@ -34,7 +36,7 @@ ZkCardSelectionOverviewView class >> style [
 	}'
 ]
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardSelectionOverviewView class >> template [
 
 	"See comment in #style method"
@@ -46,7 +48,7 @@ ZkCardSelectionOverviewView class >> template [
 	</div>'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ZkCardSelectionOverviewView >> handleAddSelectionItem: aClickEvent [
 
 	"Show the search bar when adding another selection item"
@@ -55,7 +57,7 @@ ZkCardSelectionOverviewView >> handleAddSelectionItem: aClickEvent [
 		showSearch
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardSelectionOverviewView >> initializeShadowRoot [
 
 	super initializeShadowRoot.

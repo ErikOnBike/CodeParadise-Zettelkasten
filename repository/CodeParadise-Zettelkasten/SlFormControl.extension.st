@@ -1,6 +1,6 @@
-Extension { #name : #SlFormControl }
+Extension { #name : 'SlFormControl' }
 
-{ #category : #'*CodeParadise-Zettelkasten' }
+{ #category : '*CodeParadise-Zettelkasten' }
 SlFormControl >> isInputComponent [
 
 	^ true

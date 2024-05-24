@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkZettelkastenWebClientBehavior,
-	#superclass : #CpMvpWebClientBehavior,
-	#category : #'CodeParadise-Zettelkasten-Application'
+	#name : 'ZkZettelkastenWebClientBehavior',
+	#superclass : 'CpMvpWebClientBehavior',
+	#category : 'CodeParadise-Zettelkasten-Application',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'Application'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 ZkZettelkastenWebClientBehavior class >> beLoaded [
 
 	SlIconButton beLoaded.
@@ -12,7 +14,7 @@ ZkZettelkastenWebClientBehavior class >> beLoaded [
 	SlInput beLoaded
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkZettelkastenWebClientBehavior >> addGlobalStyle [
 
 	"Add global styling.
@@ -38,7 +40,7 @@ ZkZettelkastenWebClientBehavior >> addGlobalStyle [
 		}'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkZettelkastenWebClientBehavior >> initialize [
 
 	super initialize.

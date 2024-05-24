@@ -1,10 +1,12 @@
 Class {
-	#name : #ZkCardCollectionSearchView,
-	#superclass : #CpView,
-	#category : #'CodeParadise-Zettelkasten-View'
+	#name : 'ZkCardCollectionSearchView',
+	#superclass : 'CpView',
+	#category : 'CodeParadise-Zettelkasten-View',
+	#package : 'CodeParadise-Zettelkasten',
+	#tag : 'View'
 }
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardCollectionSearchView class >> style [
 
 	<webResource: #css>
@@ -44,7 +46,7 @@ ZkCardCollectionSearchView class >> style [
 	}'
 ]
 
-{ #category : #'web resources' }
+{ #category : 'web resources' }
 ZkCardCollectionSearchView class >> template [
 
 	<webResource: #html>
@@ -54,7 +56,7 @@ ZkCardCollectionSearchView class >> template [
 	</div>'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardCollectionSearchView >> close [
 
 	self
@@ -62,7 +64,7 @@ ZkCardCollectionSearchView >> close [
 		removeFocus
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardCollectionSearchView >> closeAndReset [
 
 	"Close the view and reset the search to an empty String.
@@ -76,25 +78,25 @@ ZkCardCollectionSearchView >> closeAndReset [
 	self close
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollectionSearchView >> containerElement [
 
 	^ self shadowRoot elementWithId: #container
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollectionSearchView >> countElement [
 
 	^ self shadowRoot elementWithId: #count
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardCollectionSearchView >> focus [
 
 	self searchInput focus
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardCollectionSearchView >> handleSearchChanged: anInputEvent [
 
 	| inputValue |
@@ -108,14 +110,14 @@ ZkCardCollectionSearchView >> handleSearchChanged: anInputEvent [
 	self serverAnnounce: (CpFieldChanged id: #search value: inputValue)
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 ZkCardCollectionSearchView >> handleSearchFinalized: aKeyEvent [
 
 	"Announce change, with true as parameter to indicate search is finished now"
 	self serverAnnounce: (CpActionRequested id: #searchFinalized)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ZkCardCollectionSearchView >> initializeShadowRoot [
 
 	super initializeShadowRoot.
@@ -125,32 +127,32 @@ ZkCardCollectionSearchView >> initializeShadowRoot [
 		when: CpKeyPressEvent enter & CpNoModifiersDown send: #handleSearchFinalized: to: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ZkCardCollectionSearchView >> isInputComponent [
 
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ZkCardCollectionSearchView >> isShowing [
 
 	^ self isClassed: #show
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardCollectionSearchView >> renderSelectionCount: aString [
 
 	self countElement
 		textContent: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ZkCardCollectionSearchView >> searchInput [
 
 	^ self shadowRoot elementWithId: #'search-input'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ZkCardCollectionSearchView >> show [
 
 	self
