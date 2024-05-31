@@ -108,30 +108,19 @@ ZkCardView class >> template [
 { #category : 'rendering' }
 ZkCardView >> createDescriptionElement [
 
-	| textarea |
-
-	textarea :=  SlTextarea new
+	(self appendChild: SlTextarea new atSlotNamed: #description)
 		resizeNone ;
 		addClass: #'fill-height' ;
 		placeholder: '<description>' ;
 		rows: 1 ;
-		when: SlInputEvent send: #handleDescriptionChanged: to: self ;
-		when: SlChangeEvent send: #handleDescriptionChanged: to: self ;
-		yourself.
-
-	^ self appendChild: textarea atSlotNamed: #description
+		attachAsField: #description to: self
 ]
 
 { #category : 'rendering' }
 ZkCardView >> createIdElement [
 
-	| tag |
-
-	tag := SlTag new
-		bePill ;
-		yourself.
-
-	^ self appendChild: tag atSlotNamed: #id
+	(self appendChild: SlTag new atSlotNamed: #id)
+		bePill
 ]
 
 { #category : 'rendering' }
@@ -144,29 +133,20 @@ ZkCardView >> createTagsElement [
 
 	self when: CpResizeEvent send: #handleResize: to: self.
 
-	^ (self appendChild: SlInput new atSlotNamed: #tags)
+	(self appendChild: SlInput new atSlotNamed: #tags)
 		placeholder: '<tag>' ;
 		prefix: (CpHtmlElement newWithTag: #span) ;
 		when: SlInputEvent send: #handleTagChanged: to: self ;
 		when: SlChangeEvent send: #handleTagChanged: to: self ;
-		when: CpKeyPressEvent enter & CpNoModifiersDown send: #handleTagAdd: to: self ;
-		yourself
+		when: CpKeyPressEvent enter & CpNoModifiersDown send: #handleTagAdd: to: self
 ]
 
 { #category : 'rendering' }
 ZkCardView >> createTitleElement [
 
-	^ (self appendChild: SlInput new atSlotNamed: #title)
+	(self appendChild: SlInput new atSlotNamed: #title)
 		placeholder: '<title>' ;
-		when: SlInputEvent send: #handleTitleChanged: to: self ;
-		when: SlChangeEvent send: #handleTitleChanged: to: self ;
-		yourself
-]
-
-{ #category : 'event handling' }
-ZkCardView >> handleDescriptionChanged: anEvent [
-
-	self handleEvent: anEvent forField: #description
+		attachAsField: #title to: self
 ]
 
 { #category : 'event handling' }
@@ -221,12 +201,6 @@ ZkCardView >> handleTagRemove: aRemoveEvent [
 	self serverAnnounce: (ZkRemoveTagRequested value: aRemoveEvent target contentText)
 ]
 
-{ #category : 'event handling' }
-ZkCardView >> handleTitleChanged: anEvent [
-
-	self handleEvent: anEvent forField: #title
-]
-
 { #category : 'initialization' }
 ZkCardView >> initialize [
 
@@ -237,20 +211,6 @@ ZkCardView >> initialize [
 		createTitleElement ;
 		createDescriptionElement ;
 		createTagsElement
-]
-
-{ #category : 'rendering' }
-ZkCardView >> render: aString toInputAtSlotNamed: slotNameString [
-
-	| inputElement |
-
-	inputElement := self firstChildAtSlotNamed: slotNameString.
-
-	"If the title element has focus, do not render new value"
-	inputElement hasFocus
-		ifTrue: [ ^ self ].
-
-	inputElement value: aString
 ]
 
 { #category : 'rendering' }
