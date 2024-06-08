@@ -19,7 +19,7 @@ ZkCard class >> new [
 
 	"Do not instantiate cards directly"
 
-	self error: 'Please create new ', self name, ' using ', #newWithId:inLibrary:
+	self errorNewReplacedBy: #newWithId:inLibrary:
 ]
 
 { #category : 'instance creation' }

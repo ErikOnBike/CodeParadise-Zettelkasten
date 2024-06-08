@@ -16,7 +16,7 @@ ZkCardSelection class >> new [
 
 	"Do not instantiate card selections directly"
 
-	self error: 'Please create new ', self name, ' using ', #onSource:
+	self errorNewReplacedBy: #onSource:
 ]
 
 { #category : 'accessing' }

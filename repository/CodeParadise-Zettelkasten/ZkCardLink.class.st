@@ -24,7 +24,7 @@ ZkCardLink class >> new [
 
 	"Do not instantiate cards directly"
 
-	self error: 'Please create new ', self name, ' using ', #from:to:
+	self errorNewReplacedBy: #from:to:
 ]
 
 { #category : 'accessing' }
