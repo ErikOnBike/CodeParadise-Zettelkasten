@@ -171,7 +171,7 @@ ZkCardView >> handleResize: aResizeEvent [
 			"If input is too small or tags are bigger than input, use dropdown list"
 			(inputElementWidth < 128 or: [ tagsElementWidth > inputElementWidth ])
 				ifTrue: [ self tagsBeDropdownList ] ]
-		ifFalse: [ self flag: #TODO "Add #tagsBeInlined" ]
+		ifFalse: [ self flag: #todo "Add #tagsBeInlined" ]
 ]
 
 { #category : 'event handling' }
@@ -192,7 +192,7 @@ ZkCardView >> handleTagAdd: aKeyEvent [
 { #category : 'event handling' }
 ZkCardView >> handleTagChanged: anEvent [
 
-	self flag: #TODO.	"Add support to autocomplete any known tags"
+	self flag: #todo.	"Add support to autocomplete any known tags"
 ]
 
 { #category : 'event handling' }
