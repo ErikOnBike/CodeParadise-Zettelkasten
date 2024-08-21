@@ -1,5 +1,5 @@
 Class {
-	#name : 'ZkZettelkastenApplication',
+	#name : 'ZkZettelkastenWebApplication',
 	#superclass : 'CpMvpWebApplication',
 	#instVars : [
 		'zettelkasten'
@@ -10,7 +10,7 @@ Class {
 }
 
 { #category : 'accessing' }
-ZkZettelkastenApplication class >> allowedPackages [
+ZkZettelkastenWebApplication class >> allowedPackages [
 
 	"Answer a collection of Packages which are allowed to contain classes to install in the receiver.
 
@@ -22,19 +22,13 @@ ZkZettelkastenApplication class >> allowedPackages [
 ]
 
 { #category : 'accessing' }
-ZkZettelkastenApplication class >> app [
+ZkZettelkastenWebApplication class >> app [
 
 	^ #zettelkasten
 ]
 
-{ #category : 'accessing' }
-ZkZettelkastenApplication class >> clientBehaviorClass [
-
-	^ ZkZettelkastenWebClientBehavior
-]
-
 { #category : 'initialization' }
-ZkZettelkastenApplication class >> resetGlobalZettelkasten [
+ZkZettelkastenWebApplication class >> resetGlobalZettelkasten [
 
 	<script>
 
@@ -42,19 +36,19 @@ ZkZettelkastenApplication class >> resetGlobalZettelkasten [
 ]
 
 { #category : 'accessing' }
-ZkZettelkastenApplication >> applicationModel [
+ZkZettelkastenWebApplication >> applicationModel [
 
 	^ zettelkasten
 ]
 
 { #category : 'presenter' }
-ZkZettelkastenApplication >> applicationPresenterClass [
+ZkZettelkastenWebApplication >> applicationPresenterClass [
 
 	^ ZkZettelkastenApplicationPresenter
 ]
 
 { #category : 'accessing' }
-ZkZettelkastenApplication >> initialize [
+ZkZettelkastenWebApplication >> initialize [
 
 	| globalZettelkasten |
 
@@ -66,7 +60,7 @@ ZkZettelkastenApplication >> initialize [
 ]
 
 { #category : 'installing' }
-ZkZettelkastenApplication >> installExtensionMethods [
+ZkZettelkastenWebApplication >> installExtensionMethods [
 
 	"Install the extension methods from known Classes"
 
