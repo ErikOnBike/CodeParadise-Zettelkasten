@@ -17,7 +17,7 @@ ZkCardCollectionView class >> style [
 		part of the full width like 1/3 or 1/4 of the width. So an integral number of cards can be displayed.
 
 		The card width and height (represented by var(--zk-card-width) and var(--zk-card-height) as defined in
-		ZkZettelkastenApplicationView >> #cssVariableDefinitions) already have taken the gap between cards
+		ZkZettelkastenApplicationView class >> #globalStyle) already have taken the gap between cards
 		into account.
 
 		For convenience a fixed gap is calculated. This is simply removed from the actual card width. Since gaps

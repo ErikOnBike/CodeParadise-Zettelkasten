@@ -7,6 +7,34 @@ Class {
 }
 
 { #category : 'web resources' }
+ZkZettelkastenApplicationView class >> globalStyle [
+
+	<webResource: #css>
+
+	^ 'body {
+	margin: 0;
+	padding: 0 ;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	font-family: "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--zk-library-columns: 4;
+	--zk-card-ratio: calc(5 / 3);
+	--zk-card-gap-horizontal: 12px;
+	--zk-card-gap-vertical: 6px;
+	--zk-card-width: calc(100vw / var(--zk-library-columns) - var(--zk-card-gap-horizontal));
+	--zk-card-height: calc((var(--zk-card-width) + var(--zk-card-gap-horizontal)) / var(--zk-card-ratio) - var(--zk-card-gap-vertical));
+}
+sl-textarea.fill-height,
+sl-textarea.fill-height::part(form-control),
+sl-textarea.fill-height::part(form-control-input),
+sl-textarea.fill-height::part(base),
+sl-textarea.fill-height::part(textarea) {
+	height: 100%;
+}'
+]
+
+{ #category : 'web resources' }
 ZkZettelkastenApplicationView class >> style [
 
 	<webResource: #css>
@@ -63,19 +91,6 @@ ZkZettelkastenApplicationView >> closeSearch [
 	self searchElement close
 ]
 
-{ #category : 'accessing' }
-ZkZettelkastenApplicationView >> cssVariableDefinitions [
-
-	^ 'body {
-		--zk-library-columns: 3;
-		--zk-card-ratio: calc(5 / 3);
-		--zk-card-gap-horizontal: 12px;
-		--zk-card-gap-vertical: 6px;
-		--zk-card-width: calc(100vw / var(--zk-library-columns) - var(--zk-card-gap-horizontal));
-		--zk-card-height: calc((var(--zk-card-width) + var(--zk-card-gap-horizontal)) / var(--zk-card-ratio) - var(--zk-card-gap-vertical));
-	}'
-]
-
 { #category : 'event handling' }
 ZkZettelkastenApplicationView >> handleColumnsKey: aKeyEvent [
 
@@ -109,15 +124,11 @@ ZkZettelkastenApplicationView >> initialize [
 
 	super initialize.
 
-	"Set variables definitions and styling of the page"
-	CpHtmlElement documentHead
-		appendChild: (self cssVariableDefinitions inHtmlTag: #style) ;
-		appendChild: (self pageStyle inHtmlTag: #style).
-
 	"Add some key event handlers on the body (where all key events will end up at the moment).
 	For some actions both the action modifier and a non-action modifier are installed. The later
 	only works when not inside an input component (in which case it will be handled by the input
 	itself). Same holds for the digit keys which set the number of columns."
+
 	CpHtmlElement documentBody
 		when: CpKeyPressEvent escape send: #handleEscapeKey: to: self ;
 		when: (CpKeyPressEvent key: '/') & CpActionKeyDown send: #handleSearchKey: to: self ;
@@ -126,26 +137,6 @@ ZkZettelkastenApplicationView >> initialize [
 		when: (CpKeyPressEvent key: '?') & ZkFromInputComponent not send: #handleSearchKey: to: self ;
 		when: (CpKeyPressEvent keyRangeFrom: '2' to: '8') & CpActionKeyDown send: #handleColumnsKey: to: self ;
 		when: (CpKeyPressEvent keyRangeFrom: '2' to: '8') & ZkFromInputComponent not send: #handleColumnsKey: to: self
-]
-
-{ #category : 'accessing' }
-ZkZettelkastenApplicationView >> pageStyle [
-
-	^ 'body {
-		margin: 0;
-		padding: 0 ;
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-		font-family: "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	}
-	sl-textarea.fill-height,
-	sl-textarea.fill-height::part(form-control),
-	sl-textarea.fill-height::part(form-control-input),
-	sl-textarea.fill-height::part(base),
-	sl-textarea.fill-height::part(textarea) {
-		height: 100%;
-	}'
 ]
 
 { #category : 'accessing' }
