@@ -78,11 +78,11 @@ ZkZettelkastenApplicationView class >> template [
 	<webResource: #html>
 
 	^ '<div id="container">
-		<div id="selection"><slot name="selection"></slot></div>
-		<div id="collection"><slot name="collection"></slot></div>
-		<div id="status"><slot name="status">Hello world</slot></div>
-	</div>
-	<slot name="search"></slot>'
+	<div id="selection"><slot name="selection"></slot></div>
+	<div id="collection"><slot name="collection"></slot></div>
+	<div id="status"><slot name="status">Hello world</slot></div>
+</div>
+<slot name="search"></slot>'
 ]
 
 { #category : 'rendering' }

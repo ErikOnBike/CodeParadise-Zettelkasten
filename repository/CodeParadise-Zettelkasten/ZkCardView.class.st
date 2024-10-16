@@ -35,57 +35,57 @@ ZkCardView class >> style [
 	"
 
 	^'*, *:before, *:after {
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-	:host {
-		height: 100%;
-	}
-	#container {
-		display: flex;
-		flex-flow: column nowrap;
-		width: var(--zk-card-width);
-		height: var(--zk-card-height);
-		row-gap: 6px;
-		padding: 8px;
-		justify-content: space-between;
-		border: 3px solid #000;
-		border-radius: 16px;
-		transition: width 1s, height 1s;
-	}
-	#header {
-		display: flex;
-		align-items: center;
-	}
-	#body {
-		flex-grow: 1;
-		display: flex;
-		flex-flow: column nowrap;
-		row-gap: 6px;
-		justify-content: space-between;
-		height: 100%;
-		overflow-y: scroll;
-	}
-	#title	 {
-		flex-grow: 1;
-		margin-left: 8px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	#description {
-		flex-grow: 1;
-		overflow: hidden;
-	}
-	#linked-cards {
-		flex-grow: 0;
-		background-color: rgba(255, 0, 0, .1);
-	}
-	#tags {
-		flex-grow: 0;
-		background-color: rgba(255, 255, 0, .1);
-	}'
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:host {
+	height: 100%;
+}
+#container {
+	display: flex;
+	flex-flow: column nowrap;
+	width: var(--zk-card-width);
+	height: var(--zk-card-height);
+	row-gap: 6px;
+	padding: 8px;
+	justify-content: space-between;
+	border: 3px solid #000;
+	border-radius: 16px;
+	transition: width 1s, height 1s;
+}
+#header {
+	display: flex;
+	align-items: center;
+}
+#body {
+	flex-grow: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	row-gap: 6px;
+	justify-content: space-between;
+	height: 100%;
+	overflow-y: scroll;
+}
+#title	 {
+	flex-grow: 1;
+	margin-left: 8px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#description {
+	flex-grow: 1;
+	overflow: hidden;
+}
+#linked-cards {
+	flex-grow: 0;
+	background-color: rgba(255, 0, 0, .1);
+}
+#tags {
+	flex-grow: 0;
+	background-color: rgba(255, 255, 0, .1);
+}'
 ]
 
 { #category : 'web resources' }
@@ -96,13 +96,13 @@ ZkCardView class >> template [
 	<webResource: #html>
 
 	^ '<div id="container">
-		<div id="header"><span id="id"><slot name="id"></slot></span><span id="title"><slot name="title"></slot><span></div>
-		<div id="body">
-			<div id="description"><slot name="description"></slot></div>
-			<div id="linked-cards"><slot name="linked-cards"></slot></div>
-			<div id="tags"><slot name="tags"></slot></div>
-		</div>
-	</div>'
+	<div id="header"><span id="id"><slot name="id"></slot></span><span id="title"><slot name="title"></slot><span></div>
+	<div id="body">
+		<div id="description"><slot name="description"></slot></div>
+		<div id="linked-cards"><slot name="linked-cards"></slot></div>
+		<div id="tags"><slot name="tags"></slot></div>
+	</div>
+</div>'
 ]
 
 { #category : 'rendering' }
