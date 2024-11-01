@@ -47,6 +47,15 @@ ZkZettelkastenWebApplication >> applicationPresenterClass [
 	^ ZkZettelkastenApplicationPresenter
 ]
 
+{ #category : 'installing' }
+ZkZettelkastenWebApplication >> extensionMethodCategories [
+
+	"Answer the collection of extension method categories needed for the receiver"
+
+	^ super extensionMethodCategories,
+		#(webApplicationShoelaceExtension)
+]
+
 { #category : 'accessing' }
 ZkZettelkastenWebApplication >> initialize [
 
@@ -57,14 +66,4 @@ ZkZettelkastenWebApplication >> initialize [
 	globalZettelkasten := Smalltalk globals at: #GlobalZettelkasten ifAbsentPut: [ ZkZettelkasten new ].
 
 	zettelkasten := globalZettelkasten
-]
-
-{ #category : 'installing' }
-ZkZettelkastenWebApplication >> installExtensionMethods [
-
-	"Install the extension methods from known Classes"
-
-	super installExtensionMethods.
-
-	self installExtensionMethodsFor: #webApplicationShoelaceExtension
 ]
